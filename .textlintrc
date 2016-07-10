@@ -1,0 +1,37 @@
+{
+    "rules": {
+        "prh": { // 表記ゆれ検出ルール
+            "rulePaths": [
+                "./config/prh.yml",
+				// "./config/techbooster.yml", // カバー範囲が広いので切っておく
+				"./config/WEB+DB_PRESS.yml"
+            ]
+        },
+		"max-ten": { // 一文に含む読点の数
+			"max": 4 // 3が適当
+		},
+		/*
+        "no-doubled-joshi": { // 助詞の距離 
+            "min_interval" : 1,
+            "strict": false
+        },
+		*/
+        "no-mix-dearu-desumasu": true, // 「ですます」調と「である」調の混在禁止
+		"no-double-negative-ja": true, // 二重否定の禁止
+		"no-hankaku-kana": true, // 半角カタカナの禁止
+        "no-dropping-the-ra": true, // ら抜き言葉の禁止
+		"ja-no-weak-phrase": true, // 弱い日本語表現の禁止
+		"ja-no-abusage": true, // 頻出誤用チェック
+		"ja-no-mixed-period": true, // 句点の統一と抜けチェック
+		"ja-no-successive-word": true, // 同一単語の誤連続チェック。ex)～はは～です
+		"no-doubled-conjunctive-particle-ga": true, // 逆説の接続助詞を制限。ex)したが～だったが～
+		"no-doubled-conjunction": true, // 同じ接続詞を制限。ex)しかし～。しかし
+        "no-doubled-joshi": false, // 一文中の同じ助詞を制限。 ex)～で～で
+		"incremental-headers": true, // 見出し順序規則
+		"no-todo": true, // TODO表記
+		"preset-jtf-style": true // JTF日本語標準スタイルガイド
+    },
+    "plugins": [
+		"review"
+    ]
+}

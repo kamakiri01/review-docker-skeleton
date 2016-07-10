@@ -1,0 +1,33 @@
+version: 1
+rules:
+
+    #多分良くやるタイポ
+  - expected: Quantum
+    pattern:  Quatumn
+
+    #小文字に揃える
+  - expected: Clifford
+    specs:
+      - from: non-clifford
+        to:   non-Clifford
+
+  - expected: Toffoli
+    specs:
+      - from: toffoliゲート
+        to:   Toffoliゲート
+
+  - expected: Quantum
+    specs:
+      - from: quantum
+        to:   Quantum
+
+  - expected: syndrome
+    pattern:  syndrom
+
+#TechBoosterから
+  - expected: ひとつ
+    pattern:  一つ
+    prh: 通常は、ひとつ。数詞は１つ、漢数字は数えられる固有名詞を指す場合に利用します
+  - expected: ふたつ
+    pattern:  二つ
+    prh: 通常は、ふたつ。数詞は１つ、漢数字は数えられる固有名詞を指す場合に利用
