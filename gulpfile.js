@@ -33,5 +33,5 @@ gulp.task("_cleanPdf", () => {
     ]);
 });
 
-gulp.task("pdf", ["_cleanPdf"], shell.task([PATH_REVIEW_PDFMAKER + " " + path.resolve(__dirname, DIRNAME_ARTICLES, "config.yml")], {cwd: path.resolve(__dirname, DIRNAME_ARTICLES)}));
+gulp.task("pdf", ["_cleanPdf"], shell.task([PATH_REVIEW_PDFMAKER + " " + "config.yml"], {cwd: path.resolve(__dirname, DIRNAME_ARTICLES)}));
 
