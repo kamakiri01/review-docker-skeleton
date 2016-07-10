@@ -10,8 +10,7 @@ const PATH_REVIEW_BIN = "/usr/local/bin/";
 const PATH_REVIEW_INIT = path.resolve(PATH_REVIEW_BIN, "review-init");
 const PATH_REVIEW_PDFMAKER = path.resolve(PATH_REVIEW_BIN, "review-pdfmaker");
 
-//gulp.task("postinstall", shell.task(["review-init" + " " + DIRNAME_ARTICLES], {cwd: __dirname}));
-gulp.task("postinstall", () => {console.log("dirname", __dirname)});
+gulp.task("init", shell.task(["review-init" + " " + DIRNAME_ARTICLES], {cwd: __dirname}));
 
 gulp.task("_cleanTmp", () => {
     del.sync([path.resolve(__dirname, "tmp")]);
@@ -34,5 +33,5 @@ gulp.task("_cleanPdf", () => {
     ]);
 });
 
-gulp.task("pdf", ["_cleanPdf"], shell.task([PATH_REVIEW_PDFMAKER + " " + path.resolve(__dirname, "config.yml")], {cwd: path.resolve(__dirname, DIRNAME_ARTICLES)}));
+gulp.task("pdf", ["_cleanPdf"], shell.task([PATH_REVIEW_PDFMAKER + " " + path.resolve(__dirname, DIRNAME_ARTICLES, "config.yml")], {cwd: path.resolve(__dirname, DIRNAME_ARTICLES)}));
 
