@@ -9,7 +9,7 @@ Docker環境下でなくても、Node.jsの利用環境とRe:VIEWがインスト
 
 
 ```
-$ git clone
+$ git clone git@github.com:kamakiri01/review-docker-skeleton.git
 $ npm install
 $ npm run init 
 ```

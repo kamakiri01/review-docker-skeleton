@@ -1,11 +1,11 @@
 {
-    "name": "qc2016s",
+    "name": "review-docker-skeleton",
     "version": "1.0.0",
-    "description": "",
+    "description": "minimal publishing environment",
     "main": "index.js",
     "scripts": {
         "postinstall": "gulp init",
-		"init": " echo hello && gulp init",
+        "init": " echo hello && gulp init",
         "lint": "gulp lint",
         "pdf": "gulp pdf",
         "test": "echo \"Error: no test specified\" && exit 1"
