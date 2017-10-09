@@ -23,11 +23,11 @@ language: ja
 
 # 書名
 # 読みを入れる例 booktitle: {name: "Re:VIEW EPUBサンプル", file-as: "リビューイーパブサンプル"}
-booktitle: Re:VIEWサンプル書籍
+booktitle: sample book
 
 # 著者名。「, 」で区切って複数指定できる
 # 読みを入れる例 aut: [{name: "青木峰郎", file-as: "アオキミネロウ"}, {name: "武藤健志", file-as: "ムトウケンシ"}, {name: "高橋征義", file-as: "タカハシマサヨシ"}, {name: "角征典", file-as: "カドマサノリ"}]
-aut: ["青木峰郎", "武藤健志", "高橋征義", "角征典"]
+aut: ["kamakiri"]
 
 # 以下はオプション
 # 以下はオプション(autと同じように配列書式で複数指定可能)。
@@ -83,7 +83,7 @@ history: [["2017-09-29"]]
 # coverage: 内容の範囲や領域(配列で複数指定可)
 
 # デバッグフラグ。nullでないときには一時ファイルをカレントディレクトリに作成し、削除もしない
-debug: null
+debug: true
 
 # 固有IDに使用するドメイン。指定しない場合には、時刻に基づくランダムUUIDが入る
 # urnid: urn:uid:http://example.com/book-title/
@@ -122,7 +122,7 @@ secnolevel: 2
 # part_secnolevel: 1
 
 # 本文中に目次ページを作成するか。省略した場合はnull (作成しない)
-# toc: true
+toc: true
 
 # EPUB2標準の目次(NCX)以外に物理目次ファイルを作成するか。省略した場合はnull (作成しない)
 # ePUB3においてはこの設定によらず必ず作成される
@@ -274,9 +274,10 @@ epubmaker:
 
 # LaTeX用のスタイルファイル(styディレクトリ以下に置くこと)
 texstyle: reviewmacro
+#texstyle: techbooster-doujin
 #
 # LaTeX用のdocumentclassを指定する
-# texdocumentclass: ["jsbook", "uplatex,oneside"]
+texdocumentclass: ["jsbook", "a5j,uplatex,oneside,9pt"]
 #
 # LaTeX用のコマンドを指定する
 # texcommand: "uplatex"
@@ -301,7 +302,8 @@ pdfmaker:
   #
   # TeXコンパイル前に実行するプログラム。変換後のTeXソースを調整したいときに使用する。
   # 渡される引数1=作業用展開ディレクトリ、引数2=呼び出しを実行したディレクトリ
-  # hook_beforetexcompile: null
+  #hook_beforetexcompile: "echo `\\hypersetup{linkcolor=black}` >> articles/book-pdf/reviewmacro.sty"
+  hook_beforetexcompile: hook_beforetexcompile.sh
   #
   # TeXコンパイル後に実行するプログラム。索引作業をして再度コンパイルしたいときなどに使用する。
   # 渡される引数1=作業用展開ディレクトリ、引数2=呼び出しを実行したディレクトリ
